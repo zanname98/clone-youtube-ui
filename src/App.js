@@ -1,9 +1,20 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { publicRoutes as pbRoutes } from './routes';
+console.log(pbRoutes);
 function App() {
-  return (
-    <div className="App">
-      <h1>React App</h1>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    {pbRoutes.map((route, index) => {
+                        const Page = route.component;
+                        return <Route key={index} path={route.path} element={<Page />} />;
+                    })}
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
