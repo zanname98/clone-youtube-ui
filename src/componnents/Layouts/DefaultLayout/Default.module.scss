@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: var(--width-default-layout, 1584);
+    display: flex;
+}
+
+.content {
+    flex: 1;
+}

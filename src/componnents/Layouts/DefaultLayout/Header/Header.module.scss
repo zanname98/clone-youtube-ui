@@ -1,0 +1,111 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+}
+
+.logo {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    .topLeft-menu {
+        font-size: 24px;
+        font-weight: 100;
+        padding: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--background-hover);
+            border-radius: 24px;
+        }
+    }
+
+    .logo-icon {
+        padding: 18px 14px 18px 16px;
+        cursor: pointer;
+    }
+
+}
+
+
+
+.search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 728px;
+
+    .form {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 644px;
+        padding: 1rem;
+        border: 1px solid var(--background-hover);
+        border-radius: 24px;
+        margin-right: 16px;
+
+        input {
+            width: 488px;
+            height: 24px;
+            font-size: 1.8rem;
+
+            &::after {
+                content: '';
+                width: 1px;
+                height: 22px;
+
+            }
+        }
+
+        .btn {
+            width: 60px;
+            height: 24px;
+
+            .keyboard {}
+
+            .clear {}
+
+
+        }
+
+        .search {
+            width: 60px;
+            height: 24px;
+            font-size: 1.8rem;
+            background-color: transparent;
+        }
+
+    }
+
+    .micro {
+        font-size: 1.8rem;
+    }
+}
+
+.action {
+    display: inline-flex;
+    align-items: center;
+
+    .topRight-menu {
+        display: flex;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        font-size: small;
+        color: #606060;
+        cursor: pointer;
+
+        &:active {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f5eaea;
+        }
+    }
+}
