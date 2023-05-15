@@ -21,7 +21,13 @@
 }
 
 .icon {
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4px;
+    width: 24px;
+    height: 24px;
+    font-size: 22px;
     font-weight: 100;
 }
 
@@ -40,7 +46,7 @@
     color: var(--button-color);
 
     &:hover {
-        background-color: #97bff2;
+        background-color: #d6e9fc;
         border: none;
         outline: none;
     }

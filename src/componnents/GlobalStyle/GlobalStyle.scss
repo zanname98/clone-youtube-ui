@@ -35,3 +35,14 @@ input,
 a[href] {
     text-decoration: none;
 }
+
+body {
+    .tippy-box {
+        background-color: #616161;
+        padding: 5px 8px;
+    }
+
+    .tippy-arrow {
+        display: none;
+    }
+}
