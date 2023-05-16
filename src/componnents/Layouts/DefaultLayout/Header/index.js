@@ -18,6 +18,9 @@ import {
     faCircleQuestion,
     faExclamation,
     faAngleRight,
+    faFolder,
+    faFileVideo,
+    faBell,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames/bind';
 
@@ -40,9 +43,9 @@ const MENU_ITEMS = [
         children: {
             title: 'Appearance: Device theme',
             data: [
-                { id: 1, titile: 'Use device theme' },
-                { id: 2, titile: 'Dark theme' },
-                { id: 3, titile: 'Light theme' },
+                { id: 1, title: 'Use device theme' },
+                { id: 2, title: 'Dark theme' },
+                { id: 3, title: 'Light theme' },
             ],
         },
     },
@@ -50,11 +53,25 @@ const MENU_ITEMS = [
         title: 'Language:English',
         LeftIcon: <FontAwesomeIcon icon={faLanguage} />,
         rightIcon: <FontAwesomeIcon icon={faAngleRight} />,
+        children: {
+            title: 'Chose your Languge',
+            data: [
+                { code: 'vi', title: 'Viet Nam' },
+                { code: 'en', title: 'English' },
+            ],
+        },
     },
     {
         title: 'Restricted Mode: Off',
         LeftIcon: <FontAwesomeIcon icon={faShield} />,
         rightIcon: <FontAwesomeIcon icon={faAngleRight} />,
+        children: {
+            title: 'Restricted Mode',
+            data: [
+                { title: 'This helps hide potentially mature videos. No filter is 100% accurate.' },
+                { title: 'This setting only applies to this browser' },
+            ],
+        },
     },
     {
         title: 'Location',
@@ -66,8 +83,19 @@ const MENU_ITEMS = [
     { title: 'Help', LeftIcon: <FontAwesomeIcon icon={faCircleQuestion} />, despenser: true },
     { title: 'Send Feedback', LeftIcon: <FontAwesomeIcon icon={faExclamation} /> },
 ];
+const MUNU_USER = [
+    { title: 'Keyboad shortcus', LeftIcon: <FontAwesomeIcon icon={faKeyboard} /> },
+    { title: 'Setting', LeftIcon: <FontAwesomeIcon icon={faGear} />, despenser: true },
+    { title: 'Help', LeftIcon: <FontAwesomeIcon icon={faCircleQuestion} /> },
+    { title: 'Send Feedback', LeftIcon: <FontAwesomeIcon icon={faExclamation} />, despenser: true },
+    { title: 'Send Feedback', LeftIcon: <FontAwesomeIcon icon={faExclamation} /> },
+
+    ,
+    ...MENU_ITEMS,
+];
 function Header() {
     const [result, setResult] = useState([]);
+    const userLogin = true;
     // useEffect(() => {
     //     setTimeout(() => {
     //         setResult((prev) => [...prev, 12]);
@@ -121,25 +149,44 @@ function Header() {
                 </Tippy>
             </div>
             <div className={cx('action')}>
-                <Menu data={MENU_ITEMS}>
-                    <button className={cx('topRight-menu')}>
-                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </button>
-                </Menu>
-                {/* <Tippy content={'Cai dat'} delay={(0, 300)}>
-                    <button className={cx('topRight-menu')}>
-                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </button>
-                </Tippy> */}
-                <Button
-                    href="/login"
-                    target="_blank"
-                    blue
-                    leftIcon={<FontAwesomeIcon icon={faCircleUser} />}
-                    onClick={() => alert('clicked')}
-                >
-                    Dang nhap
-                </Button>
+                {userLogin ? (
+                    <>
+                        <Tippy content={'Create'}>
+                            <button className={cx('btn-video')}>
+                                <FontAwesomeIcon icon={faFileVideo} />
+                            </button>
+                        </Tippy>
+                        <Tippy content={'Notifications'}>
+                            <button className={cx('btn-alert')}>
+                                <FontAwesomeIcon icon={faBell} />
+                            </button>
+                        </Tippy>
+                        <Menu data={userLogin ? MUNU_USER : MENU_ITEMS}>
+                            <img
+                                className={cx('avatar')}
+                                src="https://yt3.ggpht.com/yti/AHyvSCCfRPrLSzQ33jureTc-1mhZ7CyxfffJF5gfU4gt8A=s88-c-k-c0x00ffffff-no-rj-mo"
+                                alt="avatar"
+                            />
+                        </Menu>
+                    </>
+                ) : (
+                    <>
+                        <Menu data={MENU_ITEMS}>
+                            <button className={cx('topRight-menu')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        </Menu>
+                        <Button
+                            href="/login"
+                            target="_blank"
+                            blue
+                            leftIcon={<FontAwesomeIcon icon={faCircleUser} />}
+                            onClick={() => alert('clicked')}
+                        >
+                            Dang nhap
+                        </Button>
+                    </>
+                )}
             </div>
         </div>
     );

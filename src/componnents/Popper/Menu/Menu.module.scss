@@ -1,14 +1,12 @@
 .list-menu {
     width: 300px;
-    min-height: 100%;
-    padding: 10px;
 }
 
 .menu-item {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
     background-color: transparent;
     cursor: pointer;
 
@@ -16,6 +14,36 @@
         background-color: #0000000d;
     }
 }
-.despenser{
+
+.despenser {
     border-top: 1px solid #0a09090d;
+}
+
+.header-menu {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #0a09090d;
+
+    .icon-black {
+        font-size: 1.8rem;
+        width: 40px;
+        height: 40px;
+        padding: 0 10px;
+        background-color: transparent;
+
+        &:hover {
+            background-color: #0a09090d;
+            border-radius: 50%;
+            cursor: pointer;
+
+        }
+    }
+
+    .menu-title {
+        width: 100%;
+        font-weight: 600;
+        font-size: 18px;
+
+    }
 }
